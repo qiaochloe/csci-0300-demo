@@ -1,7 +1,7 @@
 # Dockerfile used to configure a linux development environment.
 # Modified based on files from: https://github.com/rofrano/vagrant-docker-provider
 
-FROM ubuntu:focal
+FROM ubuntu:18.04
 
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -15,6 +15,7 @@ RUN apt-get update && \
         man-db \
         curl \
         wget \
+		init \
         vim-tiny && \
     apt-get -qq clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
@@ -48,4 +49,4 @@ RUN chmod 600 /home/vagrant/.ssh/authorized_keys; \
 
 # Run the init daemon
 VOLUME [ "/sys/fs/cgroup" ]
-CMD ["/usr/sbin/init"]
+CMD ["init"]
