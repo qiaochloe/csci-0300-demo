@@ -51,7 +51,12 @@ Vagrant.configure(2) do |config|
 		docker.has_ssh = true
 		docker.privileged = true
 		docker.volumes = ["/sys/fs/cgroup:/sys/fs/cgroup:ro"]
-		# Uncomment to force arm64 for testing images on Intel
-		# docker.create_args = ["--platform=linux/arm64"]     
 	end
+
+	config.vm.provision "shell", inline: <<-SHELL
+		rm -fv /etc/ssh/ssh_host_*
+		dpkg-reconfigure openssh-server
+
+		apt-get update
+	SHELL
 end
