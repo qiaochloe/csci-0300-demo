@@ -5,7 +5,7 @@ FROM ubuntu:18.04
 
 ENV DEBIAN_FRONTEND noninteractive
 
-# Install packages needed for SSH and interactive OS
+# Install packages needed for SSH and the dev environment
 RUN apt-get update && \
     yes | unminimize && \
     apt-get -y install \
@@ -16,7 +16,9 @@ RUN apt-get update && \
         curl \
         wget \
 		init \
-        vim-tiny && \
+        vim-tiny \
+        git \
+        build-essential && \
     apt-get -qq clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
