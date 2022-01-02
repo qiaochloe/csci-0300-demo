@@ -47,6 +47,10 @@ Vagrant.configure(2) do |config|
 	config.vm.provider :docker do |docker, override|
 		override.vm.box = nil
 		docker.image = "vicsli/vagrant-providers:bionic"
+		# to use a local Dockerfile instead of a pre-built image, disable 
+		# 'docker.image' and enable 'docker.build_dir'. The argument of 
+		# 'build_dir' is the directory in which you place Dockerfile.
+		# docker.build_dir = "."
 		docker.remains_running = true
 		docker.has_ssh = true
 		docker.privileged = true
