@@ -18,7 +18,8 @@ RUN apt-get update && \
 		init \
         vim-tiny \
         git \
-        build-essential && \
+        build-essential \
+        gdb && \
     apt-get -qq clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
