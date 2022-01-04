@@ -15,7 +15,7 @@ RUN apt-get update && \
         man-db \
         curl \
         wget \
-		init \
+        init \
         vim-tiny \
         git \
         build-essential \
