@@ -19,7 +19,8 @@ RUN apt-get update && \
         vim-tiny \
         git \
         build-essential \
-        gdb && \
+        gdb \
+        qemu-system-x86 && \
     apt-get -qq clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
