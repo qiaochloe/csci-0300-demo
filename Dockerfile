@@ -17,12 +17,19 @@ RUN apt-get update && \
         wget \
         init \
         vim-tiny \
+        locales \
         git \
         build-essential \
         gdb \
         qemu-system-x86 && \
     apt-get -qq clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+# Set locale
+RUN locale-gen en_US.UTF-8  
+ENV LANG en_US.UTF-8  
+ENV LANGUAGE en_US:en  
+ENV LC_ALL en_US.UTF-8
 
 # Enable systemd (from Matthew Warman's mcwarman/vagrant-provider)
 RUN (cd /lib/systemd/system/sysinit.target.wants/; for i in *; do [ $i == systemd-tmpfiles-setup.service ] || rm -f $i; done); \
