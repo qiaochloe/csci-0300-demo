@@ -55,6 +55,7 @@ Vagrant.configure(2) do |config|
 		docker.has_ssh = true
 		docker.privileged = true
 		docker.create_args = ["--platform", "linux/amd64"]
+		docker.volumes = ["/sys/fs/cgroup:/sys/fs/cgroup:ro"]
 	end
 
 	config.vm.provision "shell", inline: <<-SHELL
