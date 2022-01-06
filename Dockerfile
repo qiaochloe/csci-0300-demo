@@ -11,6 +11,8 @@ RUN apt-get -y install \
     man \
     sudo
 
+RUN apt-get -y install python3
+
 RUN apt-get -y install \
     locales
 
