@@ -3,6 +3,10 @@ run:
 	$(info Bringing up virtual machine with Docker...)
 	vagrant up --provider=docker
 
-IMG_NAME=vicsli/vagrant-providers:bionic
+IMG_NAME=cs300-base-image
+build-image:
+	docker buildx build -t ${IMG_NAME} --platform linux/amd64 .	&&\
+	docker buildx build --load -t ${IMG_NAME} --platform linux/amd64 .
+
 release-image:
-	docker build . -t ${IMG_NAME} && docker push ${IMG_NAME}
+	build-image && docker push ${IMG_NAME}
