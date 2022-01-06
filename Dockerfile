@@ -9,7 +9,8 @@ RUN apt-get update && \
 
 RUN apt-get -y install \
     man \
-    sudo
+    sudo \
+    strace
 
 RUN apt-get -y install python3
 
