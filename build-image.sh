@@ -2,6 +2,6 @@
 
 # Builds an image containing the base cs300 dev environment
 
-IMG_NAME=cs300-base-image
+. ./env.sh # load variables
 
 docker buildx build --load -t $IMG_NAME --platform linux/amd64 .

@@ -2,8 +2,7 @@
 
 # Starts and enters the cs300 development environment
 
-CONTAINER_NAME=cs300-container
-IMG_NAME=cs300-base-image
+. ./env.sh # load variables
 
 if_container_created() {
     [ $( docker ps -a | grep $CONTAINER_NAME | wc -l ) -gt 0 ] # tests whether a container called $CONTAINER_NAME exists
