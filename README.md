@@ -1,4 +1,4 @@
-# cs300: vagrant setup
+# cs300: dev environment
 
 This repo contains a minimal dev environment setup for CS 300.
 
