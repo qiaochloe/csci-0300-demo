@@ -10,7 +10,8 @@ RUN apt-get update && \
 RUN apt-get -y install \
     man \
     sudo \
-    strace
+    strace \
+    time
 
 RUN apt-get -y install python3
 
