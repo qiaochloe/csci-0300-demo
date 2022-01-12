@@ -1,0 +1,3 @@
+[submodule "cs300-projects"]
+	path = projects
+	url = https://github.com/vic-shihang-li/cs300-projects.git
