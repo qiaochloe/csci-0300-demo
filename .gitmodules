@@ -4,3 +4,6 @@
 [submodule "cs61-sections"]
 	path = cs61-sections
 	url = https://github.com/cs61/cs61-sections.git
+[submodule "cs61-f21-psets"]
+	path = cs61-f21-psets
+	url = https://github.com/cs61/cs61-f21-psets.git
