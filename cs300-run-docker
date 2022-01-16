@@ -1,7 +1,7 @@
 #! /bin/bash
 
 maindir=""
-destdir=cs300-psets
+destdir=cs300-projects
 
 fresh=
 verbose=false
