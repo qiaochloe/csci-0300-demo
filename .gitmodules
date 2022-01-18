@@ -1,5 +1,5 @@
 [submodule "cs300-projects"]
-	path = projects
+	path = projects-personal
 	url = https://github.com/vic-shihang-li/cs300-projects.git
 [submodule "cs61-sections"]
 	path = cs61-sections
@@ -8,5 +8,8 @@
 	path = cs61-psets
 	url = https://github.com/cs61/cs61-f21-psets.git
 [submodule "cs300-s21-labs"]
-	path = labs
+	path = cs300-s21-labs
 	url = https://github.com/csci0300/cs300-s21-labs.git
+[submodule "cs300-s21-projects"]
+	path = cs300-s21-projects
+	url = https://github.com/vic-shihang-li/cs300-s21-projects
