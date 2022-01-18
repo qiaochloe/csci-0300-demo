@@ -24,7 +24,7 @@ cd ..
 
 cd weensyos
 make clean && make
-timeout 2 make run
+timeout 2 make run || true
 cd ..
 
 cd vunmo
