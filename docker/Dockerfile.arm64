@@ -134,7 +134,7 @@ RUN git config --global user.name "${USER}" && \
   (echo "set expandtab"; echo "set shiftwidth=4"; echo "set softtabstop=4") > ~/.vimrc && \
   (echo "if test -f /run/host-services/ssh-auth.sock; then"; echo "  sudo chown cs300-user:cs300-user /run/host-services/ssh-auth.sock"; echo "fi") > ~/.bash_profile && \
   echo ". ~/.bashrc" >> ~/.bash_profile && \
-  echo "export PATH=/usr/x86_64-linux-gnu/bin:\$PATH" >> ~/.bashrc && \
+  echo "export PATH=\$PATH:/usr/x86_64-linux-gnu/bin" >> ~/.bashrc && \
   rm -f ~/.bash_logout && \
   echo "add-auto-load-safe-path ~" > ~/.gdbinit
 
