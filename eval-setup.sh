@@ -22,6 +22,11 @@ make clean && make check IMPL=student
 make perf
 cd ..
 
+cd weensyos
+make clean && make
+timeout 2 make run
+cd ..
+
 cd vunmo
 make clean && make check
 cd ..
