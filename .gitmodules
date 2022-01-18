@@ -7,3 +7,6 @@
 [submodule "cs61-f21-psets"]
 	path = cs61-f21-psets
 	url = https://github.com/cs61/cs61-f21-psets.git
+[submodule "cs300-s21-labs"]
+	path = labs
+	url = https://github.com/csci0300/cs300-s21-labs.git
