@@ -29,3 +29,8 @@ above setup, `GNUMakefile` needs to include `config.mk` after `rules.mk`, so
 that `rules.mk` does not overwrite user-specific `CXX` setting. Either update 
 the above setup instructions, or make appropriate changes to the stencil code's 
 `GNUMakefile`.
+
+## Credits
+
+This setup is lightly modified based on the setup from 
+[Harvard CS61](https://cs61.seas.harvard.edu/site/2021/).
