@@ -5,11 +5,16 @@ This repo contains a minimal dev environment setup for CS 300.
 ## Getting started
 
 ```
-./build-image.sh 		# builds a docker image specified by Dockerfile
-./start-container.sh	# starts a container containing a cs300 dev environment
+# 1. build docker image locally
+cd docker
+./cs300-build-docker.sh
+
+# 2. start development environment
+cd ..
+./start-container.sh
 ```
 
-## Running WeensyOS in an ARM container
+### Running WeensyOS in an ARM container
 
 Students running WeensyOS in an ARM container needs to make the following 
 changes:
