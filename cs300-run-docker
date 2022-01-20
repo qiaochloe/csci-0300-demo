@@ -114,8 +114,16 @@ elif test -x /bin/netstat; then
     fi
 fi
 
-if test -n "$maindir"; then
-    vexec docker run -it --platform $platform --rm --privileged --cap-add=SYS_PTRACE --cap-add=NET_ADMIN --security-opt seccomp=unconfined -v "$maindir/home":/home/cs300-user -w "/home/cs300-user" $netarg$sshenvarg $tag
-else
-    vexec docker run -it --platform $platform --rm --privileged --cap-add=SYS_PTRACE --cap-add=NET_ADMIN --security-opt seccomp=unconfined $netarg$sshenvarg $tag
+if test -z "$maindir"; then
+    echo "Error: could not determine your directory."
+    exit 1
 fi
+
+ vexec docker run -it \
+    --platform $platform \
+    --rm \
+    --privileged \
+    --cap-add=SYS_PTRACE --cap-add=NET_ADMIN --security-opt seccomp=unconfined \
+    -v "$maindir/home":/home/cs300-user \
+    -w "/home/cs300-user" \
+    $netarg$sshenvarg $tag
