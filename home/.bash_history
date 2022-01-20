@@ -1,3 +1,0 @@
-echo $PATH
-ls
-pwd

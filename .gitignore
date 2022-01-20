@@ -1,3 +1,4 @@
 .vagrant/
 .vscode
 .gitconfig
+.bash_history
