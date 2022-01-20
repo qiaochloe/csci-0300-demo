@@ -115,7 +115,7 @@ elif test -x /bin/netstat; then
 fi
 
 if test -n "$maindir"; then
-    vexec docker run -it --platform $platform --rm --privileged --cap-add=SYS_PTRACE --cap-add=NET_ADMIN --security-opt seccomp=unconfined -v "$maindir":/home/cs300-user/$destdir$ssharg -w "/home/cs300-user/$destdir$subdir" $netarg$sshenvarg $tag
+    vexec docker run -it --platform $platform --rm --privileged --cap-add=SYS_PTRACE --cap-add=NET_ADMIN --security-opt seccomp=unconfined -v "$maindir/home":/home/cs300-user -w "/home/cs300-user" $netarg$sshenvarg $tag
 else
     vexec docker run -it --platform $platform --rm --privileged --cap-add=SYS_PTRACE --cap-add=NET_ADMIN --security-opt seccomp=unconfined $netarg$sshenvarg $tag
 fi
