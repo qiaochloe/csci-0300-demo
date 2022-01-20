@@ -38,7 +38,8 @@ RUN apt-get -y install\
 RUN apt-get -y install\
  clang\
  clang-10-doc\
- lldb
+ lldb\
+ clang-format
 
 # install qemu for WeensyOS (sadly, this pulls in a lot of crap)
 RUN apt-get -y install\
