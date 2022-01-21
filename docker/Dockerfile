@@ -49,7 +49,6 @@ RUN apt-get -y install\
  bc\
  curl\
  dc\
- emacs-nox\
  git\
  git-doc\
  man\
@@ -57,7 +56,6 @@ RUN apt-get -y install\
  nano\
  psmisc\
  sudo\
- vim\
  wget
 
 # set up libraries
