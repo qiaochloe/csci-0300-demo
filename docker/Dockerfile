@@ -58,6 +58,10 @@ RUN apt-get -y install\
  sudo\
  wget
 
+# install rust
+RUN RUSTUP_HOME=/opt/rust CARGO_HOME=/opt/rust \
+  bash -c "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sudo -E sh -s -- -y"
+
 # set up libraries
 RUN apt-get -y install\
  libreadline-dev\
