@@ -149,13 +149,8 @@ fi
 
 if $clean; then
     remove_containers && start_new_container
-    exit 0
-fi
-
-if has_container; then
+elif has_container; then
     start_container
-    exit 0
 else
     start_new_container
-    exit 0
 fi
