@@ -66,7 +66,8 @@ RUN RUSTUP_HOME=/opt/rust CARGO_HOME=/opt/rust \
 RUN apt-get -y install\
  libreadline-dev\
  locales\
- wamerican
+ wamerican\
+ libssl-dev
 
 # install programs used for networking
 RUN apt-get -y install\

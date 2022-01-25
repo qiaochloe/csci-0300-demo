@@ -2,7 +2,7 @@
 
 cd `dirname $0`
 
-arch="`arch`"
+arch="`uname -m`"
 tag=
 platform=
 while test "$#" -ne 0; do

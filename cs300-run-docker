@@ -6,7 +6,7 @@ container_name=cs300-container
 
 clean=false
 verbose=false
-arch="`arch`"
+arch="`uname -m`"
 tag=
 platform=
 while test "$#" -ne 0; do
@@ -60,7 +60,7 @@ has_container() {
 
 remove_containers() {
     echo "Removing all existing cs300 containers..."
-    docker ps -a -f name=cs300 --format "{{.ID}}" | while read line ; do vexec docker rm --force $line ; done
+    docker ps -a -f name=cs300 --format "{{.ID}}" | while read line ; do docker rm --force $line ; done
 }
 
 start_container() {
