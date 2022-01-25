@@ -7,20 +7,16 @@ This repo contains a minimal dev environment setup for CS 300.
 ```
 # 1. build docker image locally
 cd docker
-./cs300-build-docker.sh
+./cs300-build-docker
 
 # 2. start development environment
 cd ..
-./start-container.sh
+./cs300-run-docker
 ```
 
-### Running WeensyOS in an ARM container
-
-WeensyOS's build system needs to be updated to cross-compile correctly in an
-ARM container. [Here](https://github.com/csci0300/cs300-s21-projects/pull/2)
-is one way to update the build system.
+For detailed setup instructions, refer to our lab 0 setup guide!
 
 ## Credits
 
-This setup is lightly modified based on the setup from 
+This setup is modified based on the setup from 
 [Harvard CS61](https://cs61.seas.harvard.edu/site/2021/).
