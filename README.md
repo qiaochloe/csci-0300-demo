@@ -1,6 +1,8 @@
-# cs300: dev environment
+# CS 300: development environment
 
-This repo contains a minimal dev environment setup for CS 300.
+This repo contains a minimal dev environment setup for CS 300. In
+particular, it provides the scripts to create the course Docker
+container.
 
 ## Getting started
 
@@ -14,9 +16,10 @@ cd ..
 ./cs300-run-docker
 ```
 
-For detailed setup instructions, refer to our lab 0 setup guide!
+For detailed setup instructions, refer to our Lab 0 setup guide!
 
-## Credits
+## Acknowledgements
 
-This setup is modified based on the setup from 
-[Harvard CS61](https://cs61.seas.harvard.edu/site/2021/).
+This setup is a modified version of the setup used by
+[Harvard's CS61](https://cs61.seas.harvard.edu/site/2021/) and reused
+with permission.

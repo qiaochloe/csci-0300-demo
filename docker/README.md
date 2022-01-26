@@ -126,3 +126,9 @@ $
 ```
 
 [Docker]: https://docker.com/
+
+## Acknowledgements
+
+This setup is a modified version of the setup used by
+[Harvard's CS61](https://cs61.seas.harvard.edu/site/2021/) and reused
+with permission.
