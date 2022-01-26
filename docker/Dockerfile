@@ -92,7 +92,7 @@ RUN useradd -m -s /bin/bash cs300-user && \
   echo "cs300-user ALL=(ALL:ALL) NOPASSWD: ALL" > /etc/sudoers.d/cs300-init
 
 # create binary reporting version of dockerfile
-RUN (echo '#\!/bin/sh'; echo 'echo 12') > /usr/bin/cs300-docker-version; chmod ugo+rx,u+w,go-w /usr/bin/cs300-docker-version
+RUN (echo '#\!/bin/sh'; echo 'echo 1') > /usr/bin/cs300-docker-version; chmod ugo+rx,u+w,go-w /usr/bin/cs300-docker-version
 
 # git build arguments
 ARG USER=cs300\ User
