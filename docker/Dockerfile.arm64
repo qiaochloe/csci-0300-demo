@@ -134,9 +134,5 @@ ARG EMAIL=nobody@example.com
 USER cs300-user
 RUN rm -f ~/.bash_logout
 
-#Make sure that games (like fortune and cowsay) can be run from the command line
-RUN echo "" >> ~/.bashrc
-RUN echo 'export PATH="/usr/games:$PATH"' >> ~/.bashrc 
-
 WORKDIR /home/cs300-user
 CMD ["/bin/bash", "-l"]

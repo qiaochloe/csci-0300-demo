@@ -119,6 +119,7 @@ fi
 export CARGO_HOME=/opt/rust
 export RUSTUP_HOME=/opt/rust
 export PATH=$PATH:/opt/rust/bin
+export PATH=$PATH:/usr/games
 if uname -m | grep 'aarch64\|arm' >/dev/null; then
     export PATH=$PATH:/usr/x86_64-linux-gnu/bin
 fi
