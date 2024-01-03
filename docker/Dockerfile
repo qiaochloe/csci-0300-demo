@@ -1,4 +1,4 @@
-FROM ubuntu:focal
+FROM ubuntu:jammy
 
 # set environment variables for tzdata
 ARG TZ=America/New_York
@@ -10,7 +10,7 @@ RUN apt-get update &&\
   yes | unminimize
 
 # install GCC-related packages
-RUN apt-get -y install\
+RUN apt-get update && apt-get -y install\
  binutils-doc\
  cpp-doc\
  gcc-doc\
@@ -22,14 +22,14 @@ RUN apt-get -y install\
  libblas-dev\
  liblapack-dev\
  liblapack-doc\
- libstdc++-10-doc\
+ libstdc++-11-doc\
  make\
  make-doc
 
 # install clang-related packages
 RUN apt-get -y install\
  clang\
- clang-10-doc\
+ clang-14-doc\
  lldb\
  clang-format
 
