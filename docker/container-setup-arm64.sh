@@ -10,7 +10,7 @@ apt-get update &&\
   yes | unminimize
 
 # include multiarch support
-RUN apt-get -y install binfmt-support &&\
+apt-get -y install binfmt-support &&\
   dpkg --add-architecture amd64 &&\
   apt-get update &&\
   apt-get upgrade
