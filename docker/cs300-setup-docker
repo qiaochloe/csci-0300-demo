@@ -6,4 +6,4 @@ SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 MAIN_SCRIPT="${SCRIPT_DIR}/../cs300-run-docker"
 
-${MAIN_SCRIPT} build-image
+${MAIN_SCRIPT} setup
