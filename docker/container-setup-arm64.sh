@@ -23,6 +23,7 @@ apt-get -y install\
 	g++\
 	gdb\
 	gdb-doc\
+	gdbserver\
 	glibc-doc\
 	libblas-dev\
 	liblapack-dev\

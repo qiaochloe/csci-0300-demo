@@ -18,6 +18,7 @@ apt-get update && apt-get -y install\
 			  g++-multilib\
 			  gdb\
 			  gdb-doc\
+			  gdbserver\
 			  glibc-doc\
 			  libblas-dev\
 			  liblapack-dev\
