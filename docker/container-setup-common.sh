@@ -35,7 +35,9 @@ apt-get -y install\
  nano\
  psmisc\
  sudo\
- wget
+ wget\
+ file\
+ xxd
 
 # install rust
 RUSTUP_HOME=/opt/rust CARGO_HOME=/opt/rust \
