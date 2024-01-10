@@ -34,7 +34,7 @@ myfileid=`stat $statformatarg %d:%i "${BASH_SOURCE[0]}" 2>/dev/null`
 dir="`pwd`"
 subdir=""
 while test "$dir" != / -a "$dir" != ""; do
-    thisfileid=`stat $statformatarg %d:%i "$dir"/${BASH_SOURCE[0]} 2>/dev/null`
+    thisfileid=`stat $statformatarg %d:%i "$dir"/$(basename ${BASH_SOURCE[0]}) 2>/dev/null`
     if test -n "$thisfileid" -a "$thisfileid" = "$myfileid"; then
         maindir="$dir"
         break
@@ -233,21 +233,6 @@ start_new_container() {
 	  $x11arg $x11envarg \
 	  $netarg $sshenvarg "${image_name}:${tag}"
 }
-
-
-
-if test -n "$maindir"; then
-    existing_image="`docker ps -f status=running -f ancestor=${image_name}:${tag} --no-trunc --format "{{.CreatedAt}},{{.ID}}" | sort -r | head -n 1`"
-    if test -n "$existing_image"; then
-        created_at="`echo $existing_image | sed 's/,.*//'`"
-        image="`echo $existing_image | sed 's/^.*,//'`"
-        image12="`echo $image | head -c 12`"
-        echo "* Using running container $image12, created $created_at" 1>&2
-        echo "- To start a new container, exit then \`$0 -f\`" 1>&2
-        echo "- To kill this container, exit then \`docker kill $image12\`" 1>&2
-        vexec docker exec -it $image /bin/bash
-    fi
-fi
 
 do_start_or_run()
 {
