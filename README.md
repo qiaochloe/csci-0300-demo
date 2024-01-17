@@ -7,9 +7,9 @@ container.
 ## Getting started
 
 ```
-# 1. build docker image locally
+# 1. Download the container image
 cd docker
-./cs300-build-docker
+./cs300-setup-docker
 
 # 2. start development environment
 cd ..
@@ -17,6 +17,10 @@ cd ..
 ```
 
 For detailed setup instructions, refer to our Lab 0 setup guide!
+
+For a reference on how to run the container environment, see
+`./cs300-run-docker help`.
+
 
 ## Acknowledgements
 
