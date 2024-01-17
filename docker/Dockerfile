@@ -1,6 +1,6 @@
 FROM ubuntu:jammy
 
-LABEL org.opencontainers.image.source=https://github.com/csci0300/cs300-s23-devenv
+LABEL org.opencontainers.image.source=https://github.com/csci0300/cs300-s24-devenv
 
 COPY container-setup-amd64.sh /usr/local/bin/container-setup-amd64
 COPY container-setup-common.sh /usr/local/bin/container-setup-common
