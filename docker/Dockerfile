@@ -16,7 +16,6 @@ ARG EMAIL=nobody@example.com
 
 # configure your environment
 USER cs300-user
-RUN rm -f ~/.bash_logout
 
 WORKDIR /home/cs300-user
 CMD ["/bin/bash", "-l"]

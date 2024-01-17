@@ -61,3 +61,5 @@ $SCRIPT_DIR/container-setup-common
 
 # create binary reporting version of dockerfile
 (echo '#\!/bin/sh'; echo 'if test "x$1" = x-n; then echo 1; else echo 1.arm64; fi') > /usr/bin/cs300-docker-version && chmod ugo+rx,u+w,go-w /usr/bin/cs300-docker-version
+
+rm -f /root/.bash_logout

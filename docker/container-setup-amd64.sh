@@ -33,3 +33,4 @@ $SCRIPT_DIR/container-setup-common
 # create binary reporting version of dockerfile
 (echo '#\!/bin/sh'; echo 'echo 1') > /usr/bin/cs300-docker-version && chmod ugo+rx,u+w,go-w /usr/bin/cs300-docker-version
 
+rm -f /root/.bash_logout
