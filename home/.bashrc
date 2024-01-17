@@ -123,3 +123,6 @@ export PATH=$PATH:/usr/games
 if uname -m | grep 'aarch64\|arm' >/dev/null; then
     export PATH=$PATH:/usr/x86_64-linux-gnu/bin
 fi
+
+# fix UTF-8 rendering for Snake
+export LC_ALL=en_US.UTF-8
