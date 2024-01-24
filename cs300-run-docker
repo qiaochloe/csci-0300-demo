@@ -1,5 +1,5 @@
 #! /bin/bash
-#set -x
+set -x
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
@@ -26,13 +26,13 @@ platform=
 container_runtime=docker
 __find_container_runtime()
 {
-    if [ -n "$(which docker > /dev/null)" ]; then
+    if [ $(which docker > /dev/null) ]; then
 	if [ -n "$(docker --version | grep -i podman > /dev/null)" ]; then  # Is docker actually an alias for podman?
 	    container_runtime=podman
 	else
 	    container_runtime=docker
 	fi
-    elif [ -e $(which podman > /dev/null) ]; then
+    elif [ $(which podman > /dev/null) ]; then
 	container_runtime=podman
     else
 	# Assume docker if unable to autodetect
@@ -258,7 +258,7 @@ start_new_container() {
 
     create_network
 	  #--add-host=host.docker.internal:host-gateway \
-    echo vexec $container_runtime run -it \
+    vexec $container_runtime run -it \
           --name $container_name \
 	  --platform $platform \
 	  --network "${network_name}" --network-alias "[${container_name}]" \
