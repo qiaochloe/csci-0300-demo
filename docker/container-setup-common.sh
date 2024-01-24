@@ -1,5 +1,7 @@
 #!/bin/bash
 
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd)
+
 set -eu
 
 # set up default locale
@@ -67,6 +69,5 @@ apt-get -y install\
 # remove unneeded .deb files
 rm -r /var/lib/apt/lists/*
 
-# set up passwordless sudo for user cs300-user
-useradd -m -s /bin/bash cs300-user && \
-    echo "cs300-user ALL=(ALL:ALL) NOPASSWD: ALL" > /etc/sudoers.d/cs300-init
+# Run user setup
+$SCRIPT_DIR/container-setup-user

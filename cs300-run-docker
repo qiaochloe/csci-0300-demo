@@ -1,5 +1,5 @@
 #! /bin/bash
-set -x
+#set -x
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
@@ -26,13 +26,13 @@ platform=
 container_runtime=docker
 __find_container_runtime()
 {
-    if [ $(which docker > /dev/null) ]; then
+    if $(which docker > /dev/null) ; then
 	if [ -n "$(docker --version | grep -i podman > /dev/null)" ]; then  # Is docker actually an alias for podman?
 	    container_runtime=podman
 	else
 	    container_runtime=docker
 	fi
-    elif [ $(which podman > /dev/null) ]; then
+    elif $(which podman > /dev/null) ; then
 	container_runtime=podman
     else
 	# Assume docker if unable to autodetect
@@ -43,7 +43,6 @@ __find_container_runtime()
 	echo "Using podman as container runtime"
     fi
 }
-
 
 if stat --format %i / >/dev/null 2>&1; then
     statformatarg="--format"
@@ -88,6 +87,12 @@ is_podman () {
     else
 	return 1
     fi
+}
+
+do_info () {
+    echo "Expected container runtime:  ${container_runtime}"
+    $container_runtime --version
+    $container_runtime info
 }
 
 has_container() {
@@ -211,11 +216,13 @@ start_new_container() {
     add_port_if_open 12949
 
     uidflags=
+    hostflags=
     if is_podman; then
 	uidflags="--userns=keep-id"
 	user_home="/home/$USER"
     else
 	user_home=$user_home_default
+	hostflags="--add-host=host.docker.internal:host-gateway"
     fi
 
 
@@ -257,12 +264,13 @@ start_new_container() {
     fi
 
     create_network
-	  #--add-host=host.docker.internal:host-gateway \
+
     vexec $container_runtime run -it \
           --name $container_name \
 	  --platform $platform \
 	  --network "${network_name}" --network-alias "[${container_name}]" \
-	  --privileged $uidflags \
+	  --privileged \
+	  $uidflags $hostflags \
 	  --security-opt seccomp=unconfined \
 	  --cap-add=SYS_PTRACE --cap-add=NET_ADMIN \
 	  -v "$maindir/home":"${user_home}" \
@@ -497,6 +505,10 @@ main()
 	    shift
 	    remove_containers "${container_name}"
 	    remove_image $@
+	    ;;
+	info)
+	    shift
+	    do_info $@
 	    ;;
 	*)
 	    echo "Invalid command $1"
