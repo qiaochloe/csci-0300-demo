@@ -7,7 +7,7 @@ maindir=""
 container_name=cs300-container
 network_name=cs300-network
 github_org=csci0300
-user_home_default="/home/cs300-user"  # Default user home dir (will be dynamic with podman)
+default_user="cs300-user"  # Username to use by default
 
 image_name=cs300
 image_url="ghcr.io/${github_org}/${image_name}"
@@ -221,7 +221,7 @@ start_new_container() {
 	uidflags="--userns=keep-id"
 	user_home="/home/$USER"
     else
-	user_home=$user_home_default
+	user_home="/home/${default_user}"
 	hostflags="--add-host=host.docker.internal:host-gateway"
     fi
 
@@ -339,12 +339,33 @@ get_version_string()
 
 build_image()
 {
+    local build_file_prefix
+    local build_user
+
+    if is_podman; then
+	build_file_prefix=Podmanfile
+	build_user=$USER
+    else
+	build_file_prefix=Dockerfile
+	build_user=$default_user
+    fi
+    
     # Add a version string so we can track the container version
     echo "image tag -> ${image_name}:${tag}"
     if test $platform = linux/arm64; then
-	$container_runtime build -t "${image_name}:${tag}" -f Dockerfile.arm64 --platform linux/arm64 .
+	if is_podman; then
+	    echo "Podman is not currently supported on arm64.  Please install docker."
+	    exit 1
+	fi
+	$container_runtime build -t "${image_name}:${tag}" \
+			   -f "${build_file_prefix}.arm64" --platform linux/arm64 \
+			   --build-arg USER=$build_user \
+			   .
     else
-        $container_runtime build -t "${image_name}:${tag}" -f Dockerfile --platform linux/amd64 .
+        $container_runtime build -t "${image_name}:${tag}" \
+			   -f "${build_file_prefix}" --platform linux/amd64 \
+			   --build-arg USER=$build_user \
+			   .
     fi
 }
 
