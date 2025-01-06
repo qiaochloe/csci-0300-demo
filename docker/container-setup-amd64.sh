@@ -7,8 +7,10 @@ target_user="${1:-cs300-user}"
 
 export DEBIAN_FRONTEND=noninteractive
 
-apt-get update &&\
-    yes | unminimize
+apt-get update && \
+    apt-get -y install unminimize
+
+yes | unminimize
 
 apt-get -y install passwd sudo
 which useradd
