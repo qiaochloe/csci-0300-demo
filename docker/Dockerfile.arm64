@@ -6,7 +6,7 @@ COPY container-setup-arm64.sh /usr/local/bin/container-setup-arm64
 COPY container-setup-common.sh /usr/local/bin/container-setup-common
 
 # copy new sources.list
-COPY --chown=root:root sources.list /etc/apt/sources.list
+COPY --chown=root:root ubuntu-arm64-cross.sources /etc/apt/sources.list.d/ubuntu.sources
 
 # set default locale
 ENV LANG en_US.UTF-8
