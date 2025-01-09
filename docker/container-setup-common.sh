@@ -11,7 +11,7 @@ export LANG=en_US.UTF-8
 # install clang-related packages
 apt-get -y install\
  clang\
- clang-14-doc\
+ clang-18-doc\
  lldb\
  clang-format
 
@@ -40,7 +40,9 @@ apt-get -y install\
  sudo\
  wget\
  file\
- xxd
+ xxd\
+ hexedit\
+ htop
 
 # install rust
 RUSTUP_HOME=/opt/rust CARGO_HOME=/opt/rust \
@@ -62,7 +64,7 @@ apt-get -y install\
  inetutils-ping\
  iproute2\
  net-tools\
- netcat\
+ netcat-openbsd\
  telnet\
  time\
  traceroute
@@ -72,6 +74,8 @@ rm -r /var/lib/apt/lists/*
 
 # Set up the container user
 if [[ $target_user == "cs300-user" ]]; then
+    userdel ubuntu || true
+    groupdel ubuntu || true
     useradd -m -s /bin/bash $target_user
 else
     # If using the host's user, don't create one--podman will do this
