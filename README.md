@@ -8,11 +8,9 @@ container.
 
 ```
 # 1. Download the container image
-cd docker
-./cs300-setup-docker
+./cs300-run-docker setup
 
 # 2. start development environment
-cd ..
 ./cs300-run-docker
 ```
 
