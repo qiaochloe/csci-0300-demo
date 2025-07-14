@@ -18,6 +18,12 @@ apt-get -y install\
  lldb\
  clang-format
 
+# Install C++ dev packages
+apt-get -y install \
+ cmake \
+ libstdc++-14-pic \
+ libstdc++-14-dev
+
 # install qemu for WeensyOS (sadly, this pulls in a lot of crap)
 apt-get -y --no-install-recommends install\
  qemu-system-x86
