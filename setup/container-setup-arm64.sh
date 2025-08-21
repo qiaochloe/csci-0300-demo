@@ -42,18 +42,19 @@ apt-get -y install\
 	libreadline-dev:amd64\
 	libblas-dev:amd64\
 	liblapack-dev:amd64\
-	qemu-user
+	qemu-user \
+  qemu-system-gui
 
 # link x86-64 versions of common tools into $SCRIPT_DIR/bin/x86_64-linux-gnu/bin
-mkdir -p $SCRIPT_DIR/bin/x86_64-linux-gnu/bin
+mkdir -p $SCRIPT_DIR/../bin/x86_64-linux-gnu/bin
 for i in addr2line c++filt cpp-13 g++-13 gcc-13 gcov-13 gcov-dump-13 gcov-tool-13 size strings; do \
-    ln -sf /usr/bin/x86_64-linux-gnu-$i $SCRIPT_DIR/bin/86_64-linux-gnu/bin/$i; done && \
-    ln -sf /usr/bin/x86_64-linux-gnu-cpp-13 $SCRIPT_DIR/bin/86_64-linux-gnu/bin/cpp && \
-    ln -sf /usr/bin/x86_64-linux-gnu-g++-13 $SCRIPT_DIR/bin/86_64-linux-gnu/bin/c++ && \
-    ln -sf /usr/bin/x86_64-linux-gnu-g++-13 $SCRIPT_DIR/bin/86_64-linux-gnu/bin/g++ && \
-    ln -sf /usr/bin/x86_64-linux-gnu-gcc-13 $SCRIPT_DIR/bin/86_64-linux-gnu/bin/gcc && \
-    ln -sf /usr/bin/x86_64-linux-gnu-gcc-13 $SCRIPT_DIR/bin/86_64-linux-gnu/bin/cc && \
-    ln -sf /usr/bin/gdb-multiarch $SCRIPT_DIR/bin/86_64-linux-gnu/bin/gdb
+    ln -sf /usr/bin/x86_64-linux-gnu-$i $SCRIPT_DIR/../bin/x86_64-linux-gnu/bin/$i; done && \
+    ln -sf /usr/bin/x86_64-linux-gnu-cpp-13 $SCRIPT_DIR/../bin/x86_64-linux-gnu/bin/cpp && \
+    ln -sf /usr/bin/x86_64-linux-gnu-g++-13 $SCRIPT_DIR/../bin/x86_64-linux-gnu/bin/c++ && \
+    ln -sf /usr/bin/x86_64-linux-gnu-g++-13 $SCRIPT_DIR/../bin/x86_64-linux-gnu/bin/g++ && \
+    ln -sf /usr/bin/x86_64-linux-gnu-gcc-13 $SCRIPT_DIR/../bin/x86_64-linux-gnu/bin/gcc && \
+    ln -sf /usr/bin/x86_64-linux-gnu-gcc-13 $SCRIPT_DIR/../bin/x86_64-linux-gnu/bin/cc && \
+    ln -sf /usr/bin/gdb-multiarch $SCRIPT_DIR/../bin/x86_64-linux-gnu/bin/gdb
 
 # Do main setup
 $SCRIPT_DIR/container-setup-common.sh $target_user
